@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom's Useful Apps - Contact & Support</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <header class="logo-section">
+            <img src="assets/logo.png" alt="Tom's Useful Apps Logo" class="logo">
+        </header>
+
+        <!-- Welcome Message -->
+        <section class="welcome-section">
+            <h1>Welcome to Tom's Useful Apps</h1>
+            <p class="welcome-text">
+                I'm delighted that you're using and enjoying my apps. Your feedback and experience matter greatly to me. 
+                If you're experiencing any issues, have feature requests, or simply want to share your thoughts, 
+                please don't hesitate to reach out using the form below.
+            </p>
+            <p class="welcome-text">
+                I review all submissions daily and will contact you back as soon as possible. Your input helps me 
+                create better apps for everyone.
+            </p>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="form-section">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="appName">Application Name</label>
+                    <input 
+                        type="text" 
+                        id="appName" 
+                        name="appName" 
+                        placeholder="e.g., Hotel Wake-up Call"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="yourName">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="yourName" 
+                        name="yourName" 
+                        placeholder="Your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments / Requests</label>
+                    <textarea 
+                        id="comments" 
+                        name="comments" 
+                        rows="6" 
+                        placeholder="Please describe your issue, request, or feedback in detail..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loader" style="display: none;">Sending...</span>
+                </button>
+
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Tom's Useful Apps. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
