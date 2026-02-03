@@ -78,69 +78,42 @@ body::before {
     align-items: center;
 }
 
-/* Runway */
-.runway {
+/* Runway - Just a line */
+.runway-line {
     position: absolute;
-    bottom: 0;
+    bottom: 25%;
     left: 0;
     width: 100%;
-    height: 40%;
-    background: linear-gradient(to bottom, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-    z-index: 1;
-}
-
-.runway::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 100%;
+    height: 3px;
     background: repeating-linear-gradient(
-        to bottom,
+        to right,
         #f1c40f 0%,
-        #f1c40f 5%,
-        transparent 5%,
-        transparent 10%
+        #f1c40f 40px,
+        transparent 40px,
+        transparent 80px
     );
-}
-
-.runway-lines {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 40%;
-    z-index: 2;
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent 0%,
-        transparent 48%,
-        rgba(241, 196, 15, 0.3) 48%,
-        rgba(241, 196, 15, 0.3) 52%,
-        transparent 52%,
-        transparent 100%
-    );
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
 }
 
 /* Airplane */
 .airplane {
     position: absolute;
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    height: 150px;
     z-index: 10;
-    animation: airplane-landing 2.5s ease-in-out forwards;
+    animation: airplane-landing 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     transform-origin: center center;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
 .airplane svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.airplane .landing-gear {
+    animation: landing-gear-down 0.3s ease-out 2.4s forwards;
 }
 
 /* Logo Landing */
@@ -151,7 +124,7 @@ body::before {
     transform: translateX(-50%) translateY(-200px);
     z-index: 5;
     opacity: 0;
-    animation: logo-slap-down 0.6s ease-out 2.5s forwards;
+    animation: logo-slap-down 0.6s ease-out 3s forwards;
 }
 
 .landing-logo {
@@ -160,37 +133,75 @@ body::before {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
-/* Airplane Landing Animation */
+/* Airplane Landing Animation - Realistic approach and landing */
 @keyframes airplane-landing {
+    /* Approach from distance */
     0% {
-        top: -20%;
-        left: -30%;
-        transform: scale(0.3) rotate(-10deg);
+        top: -25%;
+        left: -40%;
+        transform: scale(0.2) rotate(-15deg);
+        opacity: 0.6;
+    }
+    /* Mid approach - descending */
+    15% {
+        top: 5%;
+        left: -10%;
+        transform: scale(0.4) rotate(-8deg);
         opacity: 0.8;
     }
-    30% {
-        top: 15%;
-        left: 10%;
-        transform: scale(0.6) rotate(-5deg);
-        opacity: 1;
+    /* Getting closer - leveling out */
+    35% {
+        top: 18%;
+        left: 15%;
+        transform: scale(0.6) rotate(-4deg);
+        opacity: 0.95;
     }
-    60% {
-        top: 25%;
+    /* Final approach - slight descent */
+    55% {
+        top: 22%;
         left: 35%;
-        transform: scale(0.8) rotate(-2deg);
+        transform: scale(0.75) rotate(-2deg);
         opacity: 1;
     }
-    85% {
-        top: 30%;
+    /* Flare - pulling up slightly before touchdown */
+    75% {
+        top: 24%;
         left: 45%;
-        transform: scale(1) rotate(0deg);
+        transform: scale(0.9) rotate(1deg);
         opacity: 1;
+    }
+    /* Touchdown - slight bounce */
+    85% {
+        top: 25.5%;
+        left: 48%;
+        transform: scale(1) rotate(0deg) translateY(2px);
+        opacity: 1;
+    }
+    /* Settling on runway */
+    92% {
+        top: 25%;
+        left: 49%;
+        transform: scale(1) rotate(0deg) translateY(0px);
+        opacity: 1;
+    }
+    /* Final position */
+    100% {
+        top: 25%;
+        left: 50%;
+        transform: scale(1) rotate(0deg) translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* Landing gear deployment */
+@keyframes landing-gear-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
     }
     100% {
-        top: 32%;
-        left: 48%;
-        transform: scale(1) rotate(0deg) translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
 }
 

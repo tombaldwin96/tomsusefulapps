@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
     
-    // Wait for airplane to land and logo to appear (3.1 seconds total animation)
+    // Wait for airplane to land (3s) and logo to appear (0.6s) = 3.6 seconds total animation
     // Then wait 1 second more before fading out
     setTimeout(function() {
         preloader.classList.add('fade-out');
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             preloader.style.display = 'none';
         }, 500); // Match the transition duration
-    }, 4100); // 3.1s animation + 1s pause = 4.1 seconds total
+    }, 4600); // 3s landing + 0.6s logo + 1s pause = 4.6 seconds total
 });
 
 // Form submission handler
