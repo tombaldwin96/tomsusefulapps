@@ -17,12 +17,20 @@ This project consists of two parts:
 
 ## Backend API Deployment (Web Service)
 
+**Option 1: Using render.yaml (Recommended)**
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click **"New +"** → **"Blueprint"**
+3. Connect your Git repository: `https://github.com/tombaldwin96/tomsusefulapps.git`
+4. Render will automatically detect `render.yaml` and configure both services
+5. Review and deploy
+
+**Option 2: Manual Setup**
 1. Go to [Render Dashboard](https://dashboard.render.com)
 2. Click **"New +"** → **"Web Service"**
-3. Connect your Git repository
+3. Connect your Git repository: `https://github.com/tombaldwin96/tomsusefulapps.git`
 4. Configure:
    - **Name**: `tomsusefulapps-api`
-   - **Root Directory**: (leave empty)
+   - **Root Directory**: `.` (IMPORTANT: Must be a single dot, or leave completely empty)
    - **Environment**: `Node`
    - **Build Command**: `npm install`
    - **Start Command**: `node api/send-email.js`
