@@ -1,3 +1,22 @@
+// Preloader functionality
+window.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    const mainContent = document.getElementById('main-content');
+    
+    // Wait 3 seconds, then fade out preloader and show main content
+    setTimeout(function() {
+        preloader.classList.add('fade-out');
+        
+        // Show main content after fade starts
+        mainContent.style.display = 'block';
+        
+        // Remove preloader from DOM after fade completes
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 500); // Match the transition duration
+    }, 3000); // 3 seconds
+});
+
 // Form submission handler
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
