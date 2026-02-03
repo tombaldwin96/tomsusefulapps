@@ -5,13 +5,13 @@ window.addEventListener('DOMContentLoaded', function() {
     const logoWrapper = preloader.querySelector('.preloader-logo-wrapper');
     const logo = preloader.querySelector('.preloader-logo');
     
-    // Stop glitch animation after 1.5 seconds
+    // Stop glitch animation after 1 second
     setTimeout(function() {
         logo.classList.add('glitch-stop');
         logoWrapper.classList.add('glitch-stop');
-    }, 1500); // 1.5 seconds
+    }, 1000); // 1 second of glitching
     
-    // Wait 3 seconds total, then fade out preloader and show main content
+    // Wait 2.5 seconds total (1s glitch + 1.5s normal), then fade out preloader and show main content
     setTimeout(function() {
         preloader.classList.add('fade-out');
         
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             preloader.style.display = 'none';
         }, 500); // Match the transition duration
-    }, 3000); // 3 seconds
+    }, 2500); // 2.5 seconds total (1s glitch + 1.5s normal)
 });
 
 // Form submission handler
