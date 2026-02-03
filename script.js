@@ -1,17 +1,10 @@
-// Preloader functionality
+// Preloader functionality - Airplane Landing
 window.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
-    const logoWrapper = preloader.querySelector('.preloader-logo-wrapper');
-    const logo = preloader.querySelector('.preloader-logo');
     
-    // Stop glitch animation after 1 second
-    setTimeout(function() {
-        logo.classList.add('glitch-stop');
-        logoWrapper.classList.add('glitch-stop');
-    }, 1000); // 1 second of glitching
-    
-    // Wait 2.5 seconds total (1s glitch + 1.5s normal), then fade out preloader and show main content
+    // Wait for airplane to land and logo to appear (3.1 seconds total animation)
+    // Then wait 1 second more before fading out
     setTimeout(function() {
         preloader.classList.add('fade-out');
         
@@ -22,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             preloader.style.display = 'none';
         }, 500); // Match the transition duration
-    }, 2500); // 2.5 seconds total (1s glitch + 1.5s normal)
+    }, 4100); // 3.1s animation + 1s pause = 4.1 seconds total
 });
 
 // Form submission handler
