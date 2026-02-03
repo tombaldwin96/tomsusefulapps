@@ -1,0 +1,25 @@
+{
+  "name": "toms-useful-apps",
+  "version": "1.0.0",
+  "description": "Tom's Useful Apps - Contact form with email backend",
+  "main": "api/send-email.js",
+  "scripts": {
+    "start": "node api/send-email.js",
+    "dev": "node api/send-email.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "resend": "^3.2.0",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "contact-form",
+    "email",
+    "resend"
+  ],
+  "author": "Tom Baldwin",
+  "license": "MIT"
+}

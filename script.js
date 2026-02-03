@@ -23,34 +23,38 @@ document.getElementById('contactForm').addEventListener('submit', async function
     messageDiv.style.display = 'none';
     
     try {
-        // Using Formspree (free tier available)
-        // IMPORTANT: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-        // Get it from: https://formspree.io/forms after creating a form
-        // Set the recipient email to: tombaldwin1996@hotmail.co.uk in Formspree settings
-        const response = await fetch('https://formspree.io/f/mrepvpzy', {
+        // Send email via backend API endpoint
+        // IMPORTANT: Update the API_URL to match your deployed backend service URL
+        // For local development: 'http://localhost:3000'
+        // For production: 'https://your-backend-service.onrender.com' (or your deployed URL)
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : 'https://your-backend-service.onrender.com'; // UPDATE THIS with your actual backend URL
+        
+        const response = await fetch(`${API_URL}/api/send-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                _subject: `Contact from ${formData.appName} - ${formData.yourName}`,
-                _replyto: formData.email,
-                'Application Name': formData.appName,
-                'Your Name': formData.yourName,
-                'Email': formData.email,
-                'Comments/Requests': formData.comments
+                appName: formData.appName,
+                yourName: formData.yourName,
+                email: formData.email,
+                comments: formData.comments
             })
         });
         
-        if (response.ok) {
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
             // Success
             messageDiv.className = 'form-message success';
             messageDiv.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you as soon as possible.';
             messageDiv.style.display = 'block';
             form.reset();
         } else {
-            throw new Error('Failed to send message');
+            throw new Error(result.message || 'Failed to send message');
         }
     } catch (error) {
         // Fallback: Use mailto if Formspree fails or isn't configured
