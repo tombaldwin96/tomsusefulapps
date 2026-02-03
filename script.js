@@ -2,8 +2,16 @@
 window.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
+    const logoWrapper = preloader.querySelector('.preloader-logo-wrapper');
+    const logo = preloader.querySelector('.preloader-logo');
     
-    // Wait 3 seconds, then fade out preloader and show main content
+    // Stop glitch animation after 1.5 seconds
+    setTimeout(function() {
+        logo.classList.add('glitch-stop');
+        logoWrapper.classList.add('glitch-stop');
+    }, 1500); // 1.5 seconds
+    
+    // Wait 3 seconds total, then fade out preloader and show main content
     setTimeout(function() {
         preloader.classList.add('fade-out');
         

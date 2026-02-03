@@ -83,6 +83,12 @@ body::before {
     z-index: 1;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
     animation: glitch-main 0.3s infinite;
+    transition: transform 0.3s ease;
+}
+
+.preloader-logo.glitch-stop {
+    animation: none;
+    transform: translate(0);
 }
 
 .preloader-logo-wrapper::before,
@@ -104,12 +110,22 @@ body::before {
     animation: glitch-top 0.3s infinite;
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
     z-index: 2;
+    transition: transform 0.3s ease, left 0.3s ease;
 }
 
 .preloader-logo-wrapper::after {
     animation: glitch-bottom 0.3s infinite;
     clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
     z-index: 2;
+    transition: transform 0.3s ease, left 0.3s ease;
+}
+
+.preloader-logo-wrapper.glitch-stop::before,
+.preloader-logo-wrapper.glitch-stop::after {
+    animation: none;
+    transform: translate(0);
+    left: 0;
+    opacity: 0;
 }
 
 @keyframes glitch-main {
