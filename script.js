@@ -2,30 +2,38 @@
 window.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
-    const logoWrapper = preloader.querySelector('.preloader-logo-wrapper');
-    const logo = preloader.querySelector('.preloader-logo');
     
-    // Stop glitch animation after 1 second
-    setTimeout(function() {
-        logo.classList.add('glitch-stop');
-        logoWrapper.classList.add('glitch-stop');
-    }, 1000); // 1 second of glitching
-    
-    // Wait 2.5 seconds total (1s glitch + 1.5s normal), then fade out preloader and show main content
-    setTimeout(function() {
-        preloader.classList.add('fade-out');
+    // Only run preloader on index.html
+    if (preloader && mainContent) {
+        const logoWrapper = preloader.querySelector('.preloader-logo-wrapper');
+        const logo = preloader.querySelector('.preloader-logo');
         
-        // Show main content after fade starts
-        mainContent.style.display = 'block';
-        
-        // Remove preloader from DOM after fade completes
+        // Stop glitch animation after 1 second
         setTimeout(function() {
-            preloader.style.display = 'none';
-            // Initialize scroll animations after preloader is gone
-            initScrollAnimations();
-            initScrollProgress();
-        }, 500); // Match the transition duration
-    }, 2500); // 2.5 seconds total (1s glitch + 1.5s normal)
+            logo.classList.add('glitch-stop');
+            logoWrapper.classList.add('glitch-stop');
+        }, 1000); // 1 second of glitching
+        
+        // Wait 2.5 seconds total (1s glitch + 1.5s normal), then fade out preloader and show main content
+        setTimeout(function() {
+            preloader.classList.add('fade-out');
+            
+            // Show main content after fade starts
+            mainContent.style.display = 'block';
+            
+            // Remove preloader from DOM after fade completes
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                // Initialize scroll animations after preloader is gone
+                initScrollAnimations();
+                initScrollProgress();
+            }, 500); // Match the transition duration
+        }, 2500); // 2.5 seconds total (1s glitch + 1.5s normal)
+    } else {
+        // On other pages, initialize immediately
+        initScrollAnimations();
+        initScrollProgress();
+    }
 });
 
 // Scroll Progress Indicator
@@ -58,6 +66,21 @@ function initScrollAnimations() {
     // Observe all elements that should reveal on scroll
     const revealElements = document.querySelectorAll('.section-title, .projects-grid, .locked-panel, .about-content, .contact-intro, .form-wrapper');
     revealElements.forEach(el => observer.observe(el));
+}
+
+// Initialize on page load (for pages without preloader)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!document.getElementById('preloader')) {
+            initScrollAnimations();
+            initScrollProgress();
+        }
+    });
+} else {
+    if (!document.getElementById('preloader')) {
+        initScrollAnimations();
+        initScrollProgress();
+    }
 }
 
 // Navigation Scroll Behavior
