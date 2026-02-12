@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tom's Useful Apps - Contact & Support</title>
+    <title>Tom's Useful Apps - Premium Development Studio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,96 +14,272 @@
         </div>
     </div>
 
-    <div class="container" id="main-content" style="display: none;">
-        <!-- Logo Section -->
-        <header class="logo-section">
-            <img src="assets/logo.png" alt="Tom's Useful Apps Logo" class="logo">
-        </header>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
 
-        <!-- Welcome Message -->
-        <section class="welcome-section">
-            <h1>Welcome to Tom's Useful Apps</h1>
-            <p class="welcome-text">
-                I'm delighted that you're using and enjoying my apps. Your feedback and experience matter greatly to me. 
-                If you're experiencing any issues, have feature requests, or simply want to share your thoughts, 
-                please don't hesitate to reach out using the form below.
-            </p>
-            <p class="welcome-text">
-                I review all submissions daily and will contact you back as soon as possible. Your input helps me 
-                create better apps for everyone.
-            </p>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="assets/logo.png" alt="Tom's Useful Apps Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#current" class="nav-link">Current</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content" style="display: none;">
+        <!-- SECTION 0: HERO / WELCOME -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Tom's Useful Apps</h1>
+                <p class="hero-subtitle">
+                    I'm delighted that you're using and enjoying my apps. Your feedback and experience matter greatly to me. 
+                    If you're experiencing any issues, have feature requests, or simply want to share your thoughts, 
+                    please don't hesitate to reach out.
+                </p>
+                <p class="hero-text">
+                    I review all submissions daily and will contact you back as soon as possible. Your input helps me 
+                    create better apps for everyone.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Start a Project</a>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+            </div>
         </section>
 
-        <!-- Contact Form -->
-        <section class="form-section">
-            <h2>Get in Touch</h2>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="appName">Application Name</label>
-                    <input 
-                        type="text" 
-                        id="appName" 
-                        name="appName" 
-                        placeholder="e.g., Hotel Wake-up Call"
-                        required
-                    >
+        <!-- SECTION 1: PROJECTS -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Rules of Faith</h3>
+                        </div>
+                        <p class="project-description">Full website build (front + back end), authenticity label system, iOS app (releasing soon). Brand stocked in Selfridges.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">Backend</span>
+                            <span class="tag">Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>DTF Prints Online</h3>
+                        </div>
+                        <p class="project-description">Full website build + SEO + Google Ads + Meta marketing.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Marketing</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Charity Clothing Collections</h3>
+                        </div>
+                        <p class="project-description">Front-end site, SQL backend, scalable server setup, admin portal, and internal iOS app.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Backend</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Hotel Wake-Up Call</h3>
+                        </div>
+                        <p class="project-description">iOS app, reached Apple Top 50 paid apps for five days.</p>
+                        <div class="project-tags">
+                            <span class="tag">iOS</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Morse Translator Pro</h3>
+                        </div>
+                        <p class="project-description">iOS app, about to be released.</p>
+                        <div class="project-tags">
+                            <span class="tag">iOS</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="form-group">
-                    <label for="yourName">Your Name</label>
-                    <input 
-                        type="text" 
-                        id="yourName" 
-                        name="yourName" 
-                        placeholder="Your full name"
-                        required
-                    >
+        <!-- SECTION 2: CURRENT PROJECTS (Locked) -->
+        <section id="current" class="current-section">
+            <div class="section-container">
+                <div class="locked-panel">
+                    <div class="lock-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 10V8C6 5.79086 7.79086 4 10 4H14C16.2091 4 18 5.79086 18 8V10M6 10H4C3.44772 10 3 10.4477 3 11V19C3 19.5523 3.44772 20 4 20H20C20.5523 20 21 19.5523 21 19V11C21 10.4477 20.5523 10 20 10H18M6 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="section-title">Current Projects</h2>
+                    <p class="locked-text">Confidential — In development</p>
+                    <div class="locked-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Websites in development</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Applications in development</span>
+                        </div>
+                    </div>
+                    <p class="access-restricted">Access Restricted</p>
+                    <div class="scanline"></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="your.email@example.com"
-                        required
-                    >
+        <!-- SECTION 3: ABOUT US -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <h2 class="section-title">About Us</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        With over 11 years of experience at PlayStation as a Senior Engineer in IT DevOps, our team has built 
+                        a strong foundation in creating reliable, scalable systems. We've developed internal applications and 
+                        tools for game development and QA that are used daily, ensuring robust end-to-end product development.
+                    </p>
+                    <p class="about-text">
+                        Recently, we've expanded into public-facing applications. Our iOS app Hotel Wake-Up Call reached Apple's 
+                        Top 50 paid apps for five days, demonstrating our ability to create products that resonate with users. 
+                        We're also preparing to release Morse Translator Pro, continuing our track record of innovative solutions.
+                    </p>
+                    <p class="about-text">
+                        We specialize in full-stack development—from websites and mobile apps to backend systems. Our portfolio 
+                        includes Rules of Faith (featured in Selfridges), DTF Prints Online (with comprehensive marketing and SEO), 
+                        and Charity Clothing Collections (a complete platform with internal iOS app). Previously, we scaled an 
+                        independent clothing brand from 2019–2021 to approximately 20,000 customers and 27,000 orders, including 
+                        collaborations with major music artists.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>11+ years enterprise experience</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Full-stack development</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Scalable systems & infrastructure</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>End-to-end product delivery</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="form-group">
-                    <label for="comments">Comments / Requests</label>
-                    <textarea 
-                        id="comments" 
-                        name="comments" 
-                        rows="6" 
-                        placeholder="Please describe your issue, request, or feedback in detail..."
-                        required
-                    ></textarea>
+        <!-- SECTION 4: CONTACT FORM -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <h2 class="section-title">I want to develop a website or app</h2>
+                <p class="contact-intro">
+                    Whether you need a website, mobile application, or backend system, we're here to help bring your vision to life. 
+                    Let's start with a quick discovery chat to understand your requirements and explore how we can work together.
+                </p>
+                
+                <!-- Existing Contact Form - DO NOT CHANGE STRUCTURE -->
+                <div class="form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="appName">Application Name</label>
+                            <input 
+                                type="text" 
+                                id="appName" 
+                                name="appName" 
+                                placeholder="e.g., Hotel Wake-up Call"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yourName">Your Name</label>
+                            <input 
+                                type="text" 
+                                id="yourName" 
+                                name="yourName" 
+                                placeholder="Your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="your.email@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments">Comments / Requests</label>
+                            <textarea 
+                                id="comments" 
+                                name="comments" 
+                                rows="6" 
+                                placeholder="Please describe your issue, request, or feedback in detail..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">Sending...</span>
+                        </button>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
                 </div>
-
-                <button type="submit" class="submit-btn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="btn-loader" style="display: none;">Sending...</span>
-                </button>
-
-                <div id="formMessage" class="form-message"></div>
-            </form>
+            </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 Tom's Useful Apps</p>
-            <div class="footer-links">
-                <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="https://instagram.com/tomsusefulapps" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Follow us on Instagram">
-                    <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
-                    </svg>
-                </a>
+            <div class="footer-content">
+                <p>&copy; 2025 Tom's Useful Apps</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://instagram.com/tomsusefulapps" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Follow us on Instagram">
+                        <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </footer>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
