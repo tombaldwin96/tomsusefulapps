@@ -439,6 +439,12 @@ body {
     width: 100%;
 }
 
+.btn-support {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -1078,6 +1084,12 @@ main {
 
     .nav-links.active {
         transform: translateX(0);
+    }
+
+    .btn-support {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
     }
 
     .nav-toggle {
